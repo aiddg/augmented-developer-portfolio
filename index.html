@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio of IAN RAVAGO, The Augmented Developer, showcasing AI-driven creations and explorations in technology.">
+    <title>The Augmented Developer | IAN RAVAGO - AI-Driven Creations</title>
+    <script src="https://cdn.tailwindcss.com"></script> <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" xintegrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="icon" href="images/AD.png" type="image/png"> 
+    <link rel="stylesheet" href="style.css"> </head>
+<body class="antialiased">
+
+    <div id="preloader">
+        <div class="loader-logo">AD</div>
+    </div>
+
+    <div id="particle-container" class="fixed top-0 left-0 w-full h-full z-0 pointer-events-none"></div>
+
+    <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" id="navbar">
+        <nav class="container mx-auto px-4 sm:px-6 py-3 flex justify-between items-center">
+            <a href="index.html" class="logo-main-header text-4xl lg:text-5xl font-black tracking-[-0.1em] leading-none">
+                <span class="logo-char">T</span><span class="logo-char brand-text">A</span><span class="logo-char">D</span>
+            </a>
+            <div class="hidden md:flex space-x-6 items-center text-sm lg:text-base">
+                <a href="index.html#home" class="nav-link hover:text-brand-primary transition-colors duration-200">Home</a>
+                <a href="projects.html" class="nav-link hover:text-brand-primary transition-colors duration-200">Projects</a>
+                <a href="index.html#podcast" class="nav-link hover:text-brand-primary transition-colors duration-200">Podcast</a>
+                <a href="index.html#about" class="nav-link hover:text-brand-primary transition-colors duration-200">About</a>
+                <a href="index.html#suggest" class="nav-link hover:text-brand-primary transition-colors duration-200">Suggest Idea</a>
+                <a href="index.html#contact" class="nav-link hover:text-brand-primary transition-colors duration-200">Contact</a>
+                <button id="darkModeToggle" aria-label="Toggle Dark Mode" class="p-2 rounded-full hover:bg-white/10 dark:hover:bg-white/10 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-offset-transparent focus:ring-brand-primary">
+                    <svg id="moonIcon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 lg:w-6 lg:h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.72 9.72 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 008.25-4.502z" /></svg>
+                    <svg id="sunIcon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 lg:w-6 lg:h-6 hidden"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-6.364-.386l1.591-1.591M3 12h2.25m.386-6.364l1.591 1.591A9.372 9.372 0 0012 18c4.142 0 7.657-2.686 9-6.383z" /></svg>
+                </button>
+            </div>
+            <div class="md:hidden">
+                <button id="mobileMenuButton" aria-label="Open Menu" class="p-2 rounded-md hover:bg-white/10 dark:hover:bg-white/10 transition-colors duration-200 focus:outline-none">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-13.5 5.25h13.5" /></svg>
+                </button>
+            </div>
+        </nav>
+        <div id="mobileMenu" class="hidden md:hidden absolute top-full left-0 right-0 shadow-xl backdrop-blur-xl bg-[var(--bg-dark)]/95 dark:bg-[var(--bg-dark)]/95 html:not(.dark):bg-[var(--bg-light)]/95">
+            <a href="index.html#home" class="nav-link-mobile block py-3 px-6 hover:bg-brand-primary/20 transition-colors">Home</a>
+            <a href="projects.html" class="nav-link-mobile block py-3 px-6 hover:bg-brand-primary/20 transition-colors">Projects</a>
+            <a href="index.html#podcast" class="nav-link-mobile block py-3 px-6 hover:bg-brand-primary/20 transition-colors">Podcast</a>
+            <a href="index.html#about" class="nav-link-mobile block py-3 px-6 hover:bg-brand-primary/20 transition-colors">About</a>
+            <a href="index.html#suggest" class="nav-link-mobile block py-3 px-6 hover:bg-brand-primary/20 transition-colors">Suggest Idea</a>
+            <a href="index.html#contact" class="nav-link-mobile block py-3 px-6 hover:bg-brand-primary/20 transition-colors">Contact</a>
+            <div class="px-6 py-4 border-t border-[var(--card-border-dark)] dark:border-[var(--card-border-dark)] html:not(.dark):border-[var(--card-border-light)]">
+                 <button id="darkModeToggleMobile" aria-label="Toggle Dark Mode Mobile" class="w-full flex items-center justify-center p-3 rounded-md bg-white/5 dark:bg-white/5 hover:bg-white/10 transition-colors text-sm">
+                    <svg id="moonIconMobile" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 mr-2"><path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.72 9.72 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 008.25-4.502z" /></svg>
+                    <svg id="sunIconMobile" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 mr-2 hidden"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-6.364-.386l1.591-1.591M3 12h2.25m.386-6.364l1.591 1.591A9.372 9.372 0 0012 18c4.142 0 7.657-2.686 9-6.383z" /></svg>
+                    <span id="darkModeToggleTextMobile">Toggle Light Mode</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="overflow-hidden relative z-5">
+        <section id="home" class="min-h-screen flex flex-col items-center justify-center pt-28 pb-16 relative">
+            <div class="container mx-auto px-6 text-center z-10"> 
+                <h1 class="hero-title text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black mb-6 tracking-tighter leading-tight md:leading-tight lg:leading-tight">
+                    <span class="line-1 block">The <span class="brand-text">Augmented</span></span>
+                    <span class="line-2 block">Developer</span>
+                </h1>
+                <p class="hero-subtitle text-2xl md:text-3xl brand-text-alt font-semibold mb-10">AI-Driven Creations</p>
+                <p class="hero-description text-lg md:text-xl max-w-3xl mx-auto mb-12 leading-relaxed opacity-90">
+                    Where Human Ingenuity Meets Artificial Intelligence.
+                    <br class="hidden md:block">
+                    Exploring the future of development, one project at a time as a <span class="font-semibold brand-text">Curious Explorer</span>.
+                </p>
+                <div class="hero-buttons space-x-0 sm:space-x-5 space-y-4 sm:space-y-0">
+                    <a href="projects.html" class="btn btn-primary text-lg">
+                        Explore Projects
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform duration-200"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" /></svg>
+                    </a>
+                    <a href="#about" class="btn btn-secondary text-lg">Learn About Me</a>
+                </div>
+            </div>
+            <a href="#featured-projects" class="scroll-discover z-10" aria-label="Scroll to discover more">
+                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 13.5L12 21m0 0l-7.5-7.5M12 21V3" /></svg>
+            </a>
+        </section>
+
+        <section id="featured-projects" class="py-24 relative section-bg-lines">
+             <div class="section-bg-lines-canvas" data-color-dark="rgba(0, 255, 255, 0.07)" data-color-light="rgba(125, 0, 255, 0.07)"></div>
+            <div class="container mx-auto px-6">
+                <h2 class="section-title text-4xl lg:text-5xl font-extrabold text-center mb-6">
+                    <span class="section-title-underline">Featured <span class="brand-text">Creations</span></span>
+                </h2>
+                <p class="text-xl text-center mb-20 max-w-3xl mx-auto opacity-90">
+                    A glimpse into how I partner with AI to craft innovative and intelligent solutions.
+                </p>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-12">
+                    <div class="project-card glassmorphism-card flex flex-col group transition-transform duration-300">
+                        <div class="project-card-inner p-6 md:p-8 flex flex-col flex-grow">
+                            <img src="images/project-alpha.png" alt="Project Alpha - Data Visualization Platform" class="rounded-lg mb-6 w-full h-52 object-cover border-2 border-transparent group-hover:border-brand-primary transition-all duration-300"> <h3 class="text-2xl font-bold mb-3 brand-text-alt">Project Alpha</h3>
+                            <div class="flex items-center mb-3 space-x-2 text-xs opacity-80">
+                                <span class="tech-icon fab fa-react" title="React"></span>
+                                <span class="tech-icon fas fa-chart-line" title="Data Visualization"></span>
+                                <span class="tech-icon fas fa-robot" title="AI Assisted"></span>
+                            </div>
+                            <p class="text-sm mb-5 leading-relaxed opacity-80 flex-grow">
+                                Advanced data visualization platform. Leveraged AI for complex algorithm generation and UI component suggestions.
+                            </p>
+                            <div class="mt-auto space-y-3 pt-4"> 
+                                <a href="YOUR_PROJECT_ALPHA_DEMO_URL" target="_blank" rel="noopener noreferrer" class="btn btn-primary w-full group"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 btn-icon"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" /></svg>Launch App</a>
+                                <a href="projects.html#project-alpha-detail" class="btn btn-secondary w-full">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card glassmorphism-card flex flex-col group transition-transform duration-300">
+                        <div class="project-card-inner p-6 md:p-8 flex flex-col flex-grow">
+                            <img src="images/project-beta.png" alt="Project Beta - AI Chatbot" class="rounded-lg mb-6 w-full h-52 object-cover border-2 border-transparent group-hover:border-brand-primary transition-all duration-300"> <h3 class="text-2xl font-bold mb-3 brand-text-alt">Project Beta</h3>
+                             <div class="flex items-center mb-3 space-x-2 text-xs opacity-80">
+                                <span class="tech-icon fab fa-python" title="Python"></span>
+                                <span class="tech-icon fas fa-comments" title="Chatbot/NLP"></span>
+                                <span class="tech-icon fas fa-robot" title="AI Assisted"></span>
+                            </div>
+                            <p class="text-sm mb-5 leading-relaxed opacity-80 flex-grow">
+                                AI-powered chatbot for customer service. Used AI for NLP model refinement and conversational flow design.
+                            </p>
+                            <div class="mt-auto space-y-3 pt-4">
+                                <a href="YOUR_PROJECT_BETA_DEMO_URL" target="_blank" rel="noopener noreferrer" class="btn btn-primary w-full group"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 btn-icon"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" /></svg>Try Demo</a>
+                                <a href="projects.html#project-beta-detail" class="btn btn-secondary w-full">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card glassmorphism-card flex flex-col group transition-transform duration-300">
+                         <div class="project-card-inner p-6 md:p-8 flex flex-col flex-grow">
+                            <img src="images/project-gamma.png" alt="Project Gamma - Educational Game" class="rounded-lg mb-6 w-full h-52 object-cover border-2 border-transparent group-hover:border-brand-primary transition-all duration-300"> <h3 class="text-2xl font-bold mb-3 brand-text-alt">Project Gamma</h3>
+                            <div class="flex items-center mb-3 space-x-2 text-xs opacity-80">
+                                <span class="tech-icon fab fa-unity" title="Unity"></span>
+                                <span class="tech-icon fas fa-gamepad" title="Game Development"></span>
+                                <span class="tech-icon fas fa-robot" title="AI Assisted"></span>
+                            </div>
+                            <p class="text-sm mb-5 leading-relaxed opacity-80 flex-grow">
+                                Interactive educational game. AI assisted in procedural level generation and character behavior scripting.
+                            </p>
+                            <div class="mt-auto space-y-3 pt-4">
+                                <a href="YOUR_PROJECT_GAMMA_ONLINE_URL" target="_blank" rel="noopener noreferrer" class="btn btn-primary w-full group"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 btn-icon"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" /></svg>Play Game</a>
+                                <a href="projects.html#project-gamma-detail" class="btn btn-secondary w-full">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                 <div class="text-center mt-20">
+                    <a href="projects.html" class="btn btn-primary text-lg group">
+                        Explore All Projects
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-5 h-5 ml-3 transform group-hover:translate-x-1.5 transition-transform duration-300"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" /></svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="podcast" class="py-24 relative section-bg-lines">
+            <div class="section-bg-lines-canvas" data-color-dark="rgba(0, 255, 255, 0.04)" data-color-light="rgba(125, 0, 255, 0.04)"></div>
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="section-title text-4xl lg:text-5xl font-extrabold mb-6">
+                    <span class="section-title-underline">Audio <span class="brand-text">Explorations</span></span>
+                </h2>
+                <p class="text-xl text-center mb-10 max-w-3xl mx-auto opacity-90">
+                    Delving deeper with AI. I use Gemini for in-depth research and NotebookLM to transform these findings into engaging podcast-style audio discussions. Explore the latest insights below.
+                </p>
+                <div class="max-w-3xl mx-auto mb-12">
+                    <div class="youtube-embed-container glassmorphism-card overflow-hidden">
+                        <iframe 
+                            src="https://www.youtube.com/embed/videoseries?list=YOUR_PLAYLIST_ID" 
+                            title="YouTube Playlist Player - Audio Explorations" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                            referrerpolicy="strict-origin-when-cross-origin" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+                <a href="YOUR_YOUTUBE_CHANNEL_URL/playlists" target="_blank" rel="noopener noreferrer" class="btn btn-primary text-lg group"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-youtube btn-icon transform group-hover:scale-110 transition-transform duration-300" viewBox="0 0 16 16">
+                        <path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.022.26-.01.104c-.048.519-.119 1.023-.22 1.402a2.007 2.007 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.086-.003c-1.702-.074-2.97-.186-3.208-.268A2.007 2.007 0 0 1 .884 13.65c-.18-.51-.278-1.106-.289-1.335l-.005-.177-.001-.104c-.015-.488-.028-.994-.028-1.096v-.075c.001-.22.01-.704.024-1.143l.003-.069.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.007 2.007 0 0 1 1.415-1.42c.446-.113 1.699-.207 3.208-.268l.171-.007.086-.003.17-.006.087-.004.17-.006.089-.003h.09c.471.003 2.826.024 4.449.057l.173.004h.088zM6.405 5.125v5.75l5.083-2.875z"/>
+                    </svg>
+                    Visit My YouTube Channel
+                </a>
+            </div>
+        </section>
+
+        <section id="about" class="py-24">
+            <div class="container mx-auto px-6">
+                <div class="flex flex-col md:flex-row items-center gap-12 md:gap-20">
+                    <div class="md:w-2/5 relative group animate-tilt">
+                        <div class="absolute -inset-0.5 bg-gradient-to-r from-brand-primary to-brand-secondary rounded-2xl blur-lg opacity-50 group-hover:opacity-75 transition duration-1000 group-hover:duration-300"></div>
+                        <img src="images/AD.png" alt="IAN RAVAGO - The Augmented Developer" class="relative rounded-2xl shadow-2xl mx-auto w-full max-w-md object-cover" style="aspect-ratio: 1/1;"> 
+                    </div>
+                    <div class="md:w-3/5">
+                        <h2 class="section-title text-4xl lg:text-5xl font-extrabold mb-8"><span class="section-title-underline">About <span class="brand-text">Me</span></span></h2>
+                        <p class="text-lg mb-5 leading-relaxed opacity-90">
+                            Hello! I'm <span class="font-semibold brand-text-alt">IAN RAVAGO</span>, "The Augmented Developer." My journey into the world of technology is driven by an insatiable curiosity – I'm a true <span class="font-semibold brand-text">Curious Explorer</span> at heart.
+                        </p>
+                        <p class="text-lg mb-5 leading-relaxed opacity-90">
+                            I specialize in leveraging cutting-edge AI tools like <span class="font-semibold">Gemini</span> and <span class="font-semibold">VS Copilot</span> to accelerate development, brainstorm innovative solutions, and bring complex ideas to life. My passion lies at the intersection of human ingenuity and artificial intelligence, creating applications that are not only functional but also push the boundaries of what's possible.
+                        </p>
+                        <p class="text-lg mb-8 leading-relaxed opacity-90">
+                            This portfolio showcases my "AI-Driven Creations" – projects where AI has been a key collaborator. I believe in making technology accessible and enjoy the process of learning and building in this rapidly evolving landscape. <span class="italic">This very site, in fact, was co-created with AI, a testament to the collaborative power I champion.</span>
+                        </p>
+                        <a href="#contact" class="btn btn-primary text-lg">Get In Touch</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="suggest" class="py-24 relative section-bg-lines">
+            <div class="section-bg-lines-canvas" data-color-dark="rgba(125, 0, 255, 0.05)" data-color-light="rgba(0, 255, 255, 0.05)"></div>
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="section-title text-4xl lg:text-5xl font-extrabold mb-6"><span class="section-title-underline">Spark an <span class="brand-text">Idea</span>?</span></h2>
+                <p class="text-xl mb-16 max-w-3xl mx-auto opacity-90">
+                    Inspired by the possibilities of AI-assisted development? Have a project concept, a problem AI could solve, or a feature you'd love to see? Let's innovate together!
+                </p>
+                <div class="glassmorphism-card max-w-xl mx-auto p-8 md:p-12 transform hover:scale-105 transition-transform duration-300">
+                    <h3 class="text-2xl lg:text-3xl font-bold mb-5 brand-text-alt">Collaborate & Create</h3>
+                    <p class="mb-8 opacity-80 leading-relaxed">
+                        Your suggestions fuel creativity and might just spark the next exciting AI-driven creation. Share your thoughts and let's explore the future of tech!
+                    </p>
+                    <a href="mailto:YOUR_EMAIL_HERE?subject=Project Idea for The Augmented Developer" class="btn btn-primary text-lg group"> <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6 btn-icon transform group-hover:rotate-[-15deg] transition-transform duration-300">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+                        </svg>
+                        Email Your Idea
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="py-24">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="section-title text-4xl lg:text-5xl font-extrabold mb-6"><span class="section-title-underline">Let's <span class="brand-text">Connect</span></span></h2>
+                <p class="text-xl mb-16 max-w-2xl mx-auto opacity-90">
+                    Have a project inquiry, a question, or just want to talk about the future of AI in development? I'd love to hear from you.
+                </p>
+                <form action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST" class="max-w-lg mx-auto space-y-6"> <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <input type="text" name="name" placeholder="Your Name" class="w-full p-4 rounded-lg border-2 focus:ring-2 focus:ring-[var(--brand-primary)] focus:border-transparent outline-none transition-all duration-300 shadow-sm hover:shadow-md focus:shadow-lg" required>
+                        <input type="email" name="email" placeholder="Your Email" class="w-full p-4 rounded-lg border-2 focus:ring-2 focus:ring-[var(--brand-primary)] focus:border-transparent outline-none transition-all duration-300 shadow-sm hover:shadow-md focus:shadow-lg" required>
+                    </div>
+                    <div>
+                        <textarea name="message" placeholder="Your Message..." rows="6" class="w-full p-4 rounded-lg border-2 focus:ring-2 focus:ring-[var(--brand-primary)] focus:border-transparent outline-none transition-all duration-300 shadow-sm hover:shadow-md focus:shadow-lg" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary text-lg w-full sm:w-auto">Send Message</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="py-16 border-t dark:border-gray-700/30 html:not(.dark):border-gray-300/50 relative section-bg-lines">
+        <div class="section-bg-lines-canvas" data-color-dark="rgba(0, 255, 255, 0.03)" data-color-light="rgba(125, 0, 255, 0.03)"></div>
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <div class="mb-6">
+                <a href="index.html" class="logo-footer text-2xl font-black tracking-[-0.075em] leading-none hover:opacity-80 transition-opacity">
+                    <span class="logo-char">T</span><span class="logo-char brand-text">A</span><span class="logo-char">D</span>
+                </a>
+            </div>
+            <p class="mb-4 text-sm opacity-80">© <span id="currentYear"></span> IAN RAVAGO. All Rights Reserved.</p>
+            <p class="text-xs opacity-70 italic mb-6">"Where Human Ingenuity Meets Artificial Intelligence."</p>
+
+            <div id="ai-cocreator-trigger-container" class="mb-6">
+                <button id="aiCoCreatorButton" class="text-xs opacity-70 hover:opacity-100 hover:text-brand-primary transition-all duration-300 group inline-flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-stars mr-1.5 transform group-hover:scale-125 transition-transform duration-300" viewBox="0 0 16 16">
+                        <path d="M7.657 6.247c.11-.33.576-.33.686 0l.645 1.937a2.89 2.89 0 0 0 1.829 1.828l1.936.645c.33.11.33.576 0 .686l-1.937.645a2.89 2.89 0 0 0-1.828 1.829l-.645 1.936a.361.361 0 0 1-.686 0l-.645-1.937a2.89 2.89 0 0 0-1.828-1.828l-1.937-.645a.361.361 0 0 1 0-.686l1.937-.645a2.89 2.89 0 0 0 1.828-1.828zM3.794 1.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387A1.73 1.73 0 0 0 4.58 5.48l-.386 1.161a.217.217 0 0 1-.412 0L3.404 5.481A1.73 1.73 0 0 0 2.306 4.384l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387A1.73 1.73 0 0 0 3.404 2.31zM10.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732L9.1 2.137a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L10.863.1z"/>
+                    </svg>
+                    Co-created with AI by Gemini
+                </button>
+                <div id="ai-cocreator-info" class="text-xs mt-3 max-w-md mx-auto p-4 rounded-lg glassmorphism-card text-left">
+                    <p class="font-semibold mb-2 brand-text">AI Collaboration Highlights:</p>
+                    <ul class="list-disc list-inside space-y-1 opacity-80">
+                        <li>Initial HTML structure & Tailwind CSS setup.</li>
+                        <li>Color palette refinement and theme logic.</li>
+                        <li>JavaScript for animations (GSAP integration & ScrollTrigger).</li>
+                        <li>Brainstorming interactive UI elements & particle effects.</li>
+                        <li>Content suggestions & copy editing for impact.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="flex justify-center space-x-6">
+                <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile" class="opacity-70 hover:opacity-100 hover:text-brand-primary transition-all duration-200 transform hover:scale-125">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/></svg>
+                </a>
+                <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile" class="opacity-70 hover:opacity-100 hover:text-brand-primary transition-all duration-200 transform hover:scale-125">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16"><path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"/></svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js" defer></script>
+</body>
+</html>
