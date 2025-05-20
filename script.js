@@ -254,6 +254,38 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     // --- Page Specific Animations ---
+    function attachCardHover(cardSelector) { // Added cardSelector parameter
+        const cardsToAnimate = document.querySelectorAll(cardSelector); // Use the selector
+        cardsToAnimate.forEach(card => {
+            // Removed gsap.killTweensOf(card); based on previous findings
+
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                const rotateX = (y / rect.height) * -20; // Increased from -10
+                const rotateY = (x / rect.width) * 20;  // Increased from 10
+                
+                gsap.to(card, { 
+                    rotationX: rotateX,
+                    rotationY: rotateY,
+                    transformPerspective: 1200, 
+                    ease: "power1.out",
+                    duration: 0.5
+                });
+            });
+
+            card.addEventListener('mouseleave', () => {
+                gsap.to(card, { 
+                    rotationX: 0,
+                    rotationY: 0,
+                    ease: "elastic.out(1, 0.5)", 
+                    duration: 1
+                });
+            });
+        });
+    }
+
     function initHomepageAnimations() {
         if (!document.getElementById('home')) return; 
 
@@ -291,34 +323,10 @@ document.addEventListener('DOMContentLoaded', () => {
             scrollTrigger: {
                 trigger: "#featured-projects .grid", 
                 start: "top 85%", toggleActions: "play none none none", once: true
-            },
-            onComplete: () => { // Add this onComplete callback
-                // Re-initialize card hover animations specifically for featured projects
-                const featuredCards = document.querySelectorAll('#featured-projects .project-card');
-                featuredCards.forEach(card => {
-                    const inner = card.querySelector('.project-card-inner');
-                    if(inner) {
-                        // Kill any existing tweens on this inner element to avoid conflicts
-                        gsap.killTweensOf(inner); 
-
-                        card.addEventListener('mousemove', (e) => {
-                            const rect = card.getBoundingClientRect();
-                            const x = e.clientX - rect.left - rect.width / 2;
-                            const y = e.clientY - rect.top - rect.height / 2;
-                            const rotateX = (y / rect.height) * -7; 
-                            const rotateY = (x / rect.width) * 7;
-                            gsap.to(inner, {
-                                rotationX: rotateX, rotationY: rotateY, transformPerspective: 1200,
-                                ease: "power1.out", duration: 0.5
-                            });
-                        });
-                        card.addEventListener('mouseleave', () => {
-                            gsap.to(inner, { rotationX: 0, rotationY: 0, ease: "elastic.out(1, 0.5)", duration: 1 });
-                        });
-                    }
-                });
             }
         });
+
+        attachCardHover('#featured-projects .project-card'); // Call with selector for homepage cards
     }
 
     function initProjectsPageAnimations() {
@@ -331,6 +339,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 start: "top 85%", toggleActions: "play none none none", once: true
             }
         });
+        attachCardHover('#project-gallery .project-card'); // Call with selector for project page cards
     }
     
     function initCommonAnimations() {

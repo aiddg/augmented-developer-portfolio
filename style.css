@@ -106,7 +106,7 @@ h1, h2, h3, h4, h5, h6 { font-family: 'Montserrat', sans-serif; }
 .glassmorphism-card {
     backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
     border-radius: 1rem;
-    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition: box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
     will-change: transform, box-shadow; 
 }
 .project-card { perspective: 1000px; display: flex; flex-direction: column; }
